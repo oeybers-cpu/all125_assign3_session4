@@ -1,1 +1,224 @@
+Here's the complete updated HTML code for the ALL 124 Assignment 3 planning system with UK spelling, new tabs, and all requested features:
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <title>ALL 124 Assignment 3 Planning System</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 20px; 
+      line-height: 1.6;
+      color: #333;
+    }
+    .tab-navigation { 
+      margin-bottom: 15px; 
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .tab-navigation button { 
+      padding: 8px 15px; 
+      background: #f0f0f0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-navigation button:hover {
+      background: #e0e0e0;
+    }
+    .tab-navigation button.active {
+      background: #4CAF50;
+      color: white;
+      border-color: #45a049;
+    }
+    .tab-content { 
+      display: none; 
+      padding: 15px; 
+      border: 1px solid #ddd; 
+      margin-top: 10px;
+      border-radius: 4px;
+      background: #f9f9f9;
+    }
+    .tab-content h2 { 
+      margin-top: 0; 
+      color: #2c3e50;
+    }
+    .guiding-questions {
+      background: #e8f4fc;
+      padding: 10px 15px;
+      border-left: 4px solid #3498db;
+      margin: 10px 0;
+    }
+    textarea { 
+      width: 100%; 
+      height: 150px; 
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: inherit;
+    }
+    .download-btn {
+      padding: 8px 15px; 
+      background: #4CAF50; 
+      color: white; 
+      border: none; 
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+    .download-btn:hover {
+      background: #45a049;
+    }
+    .team-note {
+      font-style: italic;
+      color: #7f8c8d;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ALL 124 Assignment 3: Team Argumentation Presentation Planning</h1>
+  <p class="team-note">Complete these sections in sequence to ensure your team is fully prepared for the presentation. All notes will be saved locally in your browser.</p>
+  
+  <div class="tab-navigation">
+    <button class="active" onclick="openTab('kahoot')">1. Kahoot Participation</button>
+    <button onclick="openTab('thesis')">2. Define Thesis Statements</button>
+    <button onclick="openTab('theme')">3. Final Argumentative Theme & Topic</button>
+    <button onclick="openTab('data')">4. Identify Key Data</button>
+    <button onclick="openTab('roles')">5. Finalise Roles & Format</button>
+    <button onclick="openTab('contact')">6. Contact Details & Meeting Plan</button>
+  </div>
 
+  <!-- Kahoot Tab -->
+  <div id="kahoot" class="tab-content" style="display: block;">
+    <h2>Kahoot Participation</h2>
+    <div class="guiding-questions">
+      <p><strong>Guiding questions:</strong></p>
+      <ul>
+        <li>What is the purpose of the Kahoot quiz in relation to our chosen theme?</li>
+        <li>What key insights did we gain from the Kahoot that might shape our argument?</li>
+        <li>How will the Kahoot results inform our research direction and evidence selection?</li>
+        <li>What misconceptions did we identify that we need to address in our presentation?</li>
+      </ul>
+    </div>
+    <textarea id="kahoot-notes" placeholder="Take notes here... (any language accepted)"></textarea>
+    <button class="download-btn" onclick="downloadNotes('kahoot-notes', 'kahoot_notes.txt')">Download Notes</button>
+  </div>
+
+  <!-- Thesis Tab -->
+  <div id="thesis" class="tab-content">
+    <h2>Define Thesis Statements</h2>
+    <div class="guiding-questions">
+      <p><strong>Guiding questions:</strong></p>
+      <ul>
+        <li>What is our team's clear, debatable position on the chosen issue?</li>
+        <li>How does our thesis statement address the 'why' and 'so what' of our argument?</li>
+        <li>What specific elements must our thesis include (position, scope, rationale)?</li>
+        <li>How will this thesis guide our evidence selection and structure?</li>
+      </ul>
+    </div>
+    <textarea id="thesis-notes" placeholder="Take notes here... (any language accepted)"></textarea>
+    <button class="download-btn" onclick="downloadNotes('thesis-notes', 'thesis_notes.txt')">Download Notes</button>
+  </div>
+
+  <!-- Theme Tab -->
+  <div id="theme" class="tab-content">
+    <h2>Final Argumentative Theme & Topic</h2>
+    <div class="guiding-questions">
+      <p><strong>Guiding questions:</strong></p>
+      <ul>
+        <li>What specific theme from Assignment 2 have we selected? (Unemployment, Corruption, Entrepreneurship, etc.)</li>
+        <li>What precise debatable issue within this theme will we address?</li>
+        <li>Why is this issue particularly relevant to current societal or academic discussions?</li>
+        <li>How does our chosen topic meet the assignment requirements for a debatable issue?</li>
+      </ul>
+    </div>
+    <textarea id="theme-notes" placeholder="Take notes here... (any language accepted)"></textarea>
+    <button class="download-btn" onclick="downloadNotes('theme-notes', 'theme_notes.txt')">Download Notes</button>
+  </div>
+
+  <!-- Data Tab -->
+  <div id="data" class="tab-content">
+    <h2>Identify Key Data</h2>
+    <div class="guiding-questions">
+      <p><strong>Guiding questions:</strong></p>
+      <ul>
+        <li>What are the two key articles we will use as primary evidence? (Include full titles and authors)</li>
+        <li>What specific data, statistics, or arguments from each article support our thesis?</li>
+        <li>How will we cite these sources using Harvard style in our presentation?</li>
+        <li>How do these sources help us address potential counterarguments?</li>
+      </ul>
+    </div>
+    <textarea id="data-notes" placeholder="Take notes here... (any language accepted)"></textarea>
+    <button class="download-btn" onclick="downloadNotes('data-notes', 'data_notes.txt')">Download Notes</button>
+  </div>
+
+  <!-- Roles Tab -->
+  <div id="roles" class="tab-content">
+    <h2>Finalise Roles & Format</h2>
+    <div class="guiding-questions">
+      <p><strong>Guiding questions:</strong></p>
+      <ul>
+        <li>What specific roles will each team member take? (Researcher, Presenter, Visual Designer, etc.)</li>
+        <li>Will our presentation be face-to-face or digital? What factors influenced this decision?</li>
+        <li>How will we ensure equal contribution from all team members throughout the process?</li>
+        <li>What specific responsibilities does each role have for the presentation structure?</li>
+      </ul>
+    </div>
+    <textarea id="roles-notes" placeholder="Take notes here... (any language accepted)"></textarea>
+    <button class="download-btn" onclick="downloadNotes('roles-notes', 'roles_notes.txt')">Download Notes</button>
+  </div>
+
+  <!-- Contact Tab -->
+  <div id="contact" class="tab-content">
+    <h2>Contact Details & Meeting Plan</h2>
+    <div class="guiding-questions">
+      <p><strong>Guiding questions:</strong></p>
+      <ul>
+        <li>What are each team member's contact details (email, phone, preferred communication method)?</li>
+        <li>When and where will our next team meeting take place? (Include virtual meeting link if applicable)</li>
+        <li>What specific tasks must be completed before our next meeting?</li>
+        <li>How will we maintain communication between meetings? (e.g., WhatsApp, email, Teams)</li>
+      </ul>
+    </div>
+    <textarea id="contact-notes" placeholder="Take notes here... (any language accepted)"></textarea>
+    <button class="download-btn" onclick="downloadNotes('contact-notes', 'contact_notes.txt')">Download Notes</button>
+  </div>
+
+  <script>
+    function openTab(tabName) {
+      // Update active tab button
+      const buttons = document.querySelectorAll('.tab-navigation button');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`button[onclick*="${tabName}"]`).classList.add('active');
+      
+      // Show selected tab
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => tab.style.display = 'none');
+      document.getElementById(tabName).style.display = 'block';
+    }
+
+    function downloadNotes(textareaId, filename) {
+      const text = document.getElementById(textareaId).value;
+      if (!text.trim()) {
+        alert('No notes to download! Please enter some content first.');
+        return;
+      }
+      
+      const blob = new Blob([text], {type: 'text/plain'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      alert(`Notes saved as ${filename}!`);
+    }
+  </script>
+</body>
+</html>
