@@ -3,98 +3,194 @@
 <head>
   <meta charset="UTF-8">
   <title>ALL 124 Assignment 3 Planning System</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --primary: #003366;
+      --secondary: #FF6600;
+      --light: #ffffff;
+      --text: #000000;
+      --card-bg: #f8f9fa;
+      --sidebar-width: 280px;
+      --border-color: #ddd;
+      --hover-bg: #e0e0e0;
+      --active-bg: #4CAF50;
+      --active-border: #45a049;
+      --guiding-bg: #e8f4fc;
+      --guiding-border: #3498db;
+      --download-bg: #4CAF50;
+      --download-hover: #45a049;
+      --team-note-color: #7f8c8d;
+      --fa-style-family-brands: "Font Awesome 6 Brands";
+      --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+      --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
+      --fa-style-family-classic: "Font Awesome 6 Free";
+      --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+    }
+    
+    * {
+      -webkit-locale: "en";
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
     body { 
       font-family: Arial, sans-serif; 
-      margin: 20px; 
       line-height: 1.6;
-      color: #333;
+      color: var(--text);
+      background-color: var(--light);
+      padding: 20px;
     }
+    
     .tab-navigation { 
       margin-bottom: 15px; 
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
+      background: var(--card-bg);
+      padding: 10px;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
+    
     .tab-navigation button { 
       padding: 8px 15px; 
-      background: #f0f0f0;
-      border: 1px solid #ddd;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
       border-radius: 4px;
       cursor: pointer;
       transition: all 0.2s;
+      font-weight: 500;
     }
+    
     .tab-navigation button:hover {
-      background: #e0e0e0;
+      background: var(--hover-bg);
     }
+    
     .tab-navigation button.active {
-      background: #4CAF50;
-      color: white;
-      border-color: #45a049;
+      background: var(--primary);
+      color: var(--light);
+      border-color: var(--primary);
+      box-shadow: 0 2px 4px rgba(0,51,102,0.2);
     }
+    
     .tab-content { 
       display: none; 
-      padding: 15px; 
-      border: 1px solid #ddd; 
+      padding: 20px; 
+      border: 1px solid var(--border-color); 
       margin-top: 10px;
       border-radius: 4px;
-      background: #f9f9f9;
+      background: var(--card-bg);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
+    
     .tab-content h2 { 
+      color: var(--primary);
       margin-top: 0; 
-      color: #2c3e50;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--secondary);
     }
+    
     .guiding-questions {
-      background: #e8f4fc;
-      padding: 10px 15px;
-      border-left: 4px solid #3498db;
-      margin: 10px 0;
+      background: var(--guiding-bg);
+      padding: 15px;
+      border-left: 4px solid var(--guiding-border);
+      margin: 15px 0;
+      border-radius: 0 4px 4px 0;
     }
+    
+    .guiding-questions ul {
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+    
+    .guiding-questions li {
+      margin-bottom: 8px;
+    }
+    
     textarea { 
       width: 100%; 
-      height: 150px; 
-      margin-top: 10px;
-      padding: 10px;
-      border: 1px solid #ddd;
+      height: 200px; 
+      margin-top: 15px;
+      padding: 15px;
+      border: 1px solid var(--border-color);
       border-radius: 4px;
       font-family: inherit;
+      resize: vertical;
+      background: var(--light);
+      color: var(--text);
     }
+    
     .download-btn {
-      padding: 8px 15px; 
-      background: #4CAF50; 
-      color: white; 
+      padding: 10px 20px; 
+      background: var(--download-bg); 
+      color: var(--light); 
       border: none; 
       border-radius: 4px;
       cursor: pointer;
-      margin-top: 10px;
+      margin-top: 15px;
       transition: background 0.2s;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
+    
     .download-btn:hover {
-      background: #45a049;
+      background: var(--download-hover);
     }
+    
     .team-note {
       font-style: italic;
-      color: #7f8c8d;
-      margin-bottom: 10px;
+      color: var(--team-note-color);
+      margin-bottom: 15px;
+      padding: 10px;
+      background: rgba(248, 249, 250, 0.7);
+      border-radius: 4px;
+      border-left: 3px solid var(--secondary);
+    }
+    
+    h1 {
+      color: var(--primary);
+      margin-bottom: 25px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--secondary);
+      font-size: 28px;
+    }
+    
+    @media (max-width: 768px) {
+      .tab-navigation {
+        flex-direction: column;
+      }
+      
+      .tab-navigation button {
+        width: 100%;
+        text-align: left;
+      }
+      
+      .tab-content {
+        padding: 15px;
+      }
     }
   </style>
 </head>
 <body>
   <h1>ALL 124 Assignment 3: Team Argumentation Presentation Planning</h1>
-  <p class="team-note">Complete these sections in sequence to ensure your team is fully prepared for the presentation. All notes will be saved locally in your browser.</p>
+  <p class="team-note"><i class="fas fa-info-circle" style="margin-right: 8px;"></i>Complete these sections in sequence to ensure your team is fully prepared for the presentation. All notes will be saved locally in your browser.</p>
   
   <div class="tab-navigation">
-    <button class="active" onclick="openTab('kahoot')">1. Kahoot Participation</button>
-    <button onclick="openTab('thesis')">2. Define Thesis Statements</button>
-    <button onclick="openTab('theme')">3. Final Argumentative Theme & Topic</button>
-    <button onclick="openTab('data')">4. Identify Key Data</button>
-    <button onclick="openTab('roles')">5. Finalise Roles & Format</button>
-    <button onclick="openTab('contact')">6. Contact Details & Meeting Plan</button>
+    <button class="active" onclick="openTab('kahoot')"><i class="fas fa-gamepad" style="margin-right: 8px;"></i>1. Kahoot Participation</button>
+    <button onclick="openTab('thesis')"><i class="fas fa-graduation-cap" style="margin-right: 8px;"></i>2. Define Thesis Statements</button>
+    <button onclick="openTab('theme')"><i class="fas fa-book" style="margin-right: 8px;"></i>3. Final Argumentative Theme & Topic</button>
+    <button onclick="openTab('data')"><i class="fas fa-database" style="margin-right: 8px;"></i>4. Identify Key Data</button>
+    <button onclick="openTab('roles')"><i class="fas fa-users" style="margin-right: 8px;"></i>5. Finalise Roles & Format</button>
+    <button onclick="openTab('contact')"><i class="fas fa-address-book" style="margin-right: 8px;"></i>6. Contact Details & Meeting Plan</button>
   </div>
 
   <!-- Kahoot Tab -->
   <div id="kahoot" class="tab-content" style="display: block;">
-    <h2>Kahoot Participation</h2>
+    <h2><i class="fas fa-gamepad" style="margin-right: 8px;"></i>Kahoot Participation</h2>
     <div class="guiding-questions">
       <p><strong>Guiding questions:</strong></p>
       <ul>
@@ -105,12 +201,12 @@
       </ul>
     </div>
     <textarea id="kahoot-notes" placeholder="Take notes here... (any language accepted)"></textarea>
-    <button class="download-btn" onclick="downloadNotes('kahoot-notes', 'kahoot_notes.txt')">Download Notes</button>
+    <button class="download-btn" onclick="downloadNotes('kahoot-notes', 'kahoot_notes.txt')"><i class="fas fa-download"></i> Download Notes</button>
   </div>
 
   <!-- Thesis Tab -->
   <div id="thesis" class="tab-content">
-    <h2>Define Thesis Statements</h2>
+    <h2><i class="fas fa-graduation-cap" style="margin-right: 8px;"></i>Define Thesis Statements</h2>
     <div class="guiding-questions">
       <p><strong>Guiding questions:</strong></p>
       <ul>
@@ -121,12 +217,12 @@
       </ul>
     </div>
     <textarea id="thesis-notes" placeholder="Take notes here... (any language accepted)"></textarea>
-    <button class="download-btn" onclick="downloadNotes('thesis-notes', 'thesis_notes.txt')">Download Notes</button>
+    <button class="download-btn" onclick="downloadNotes('thesis-notes', 'thesis_notes.txt')"><i class="fas fa-download"></i> Download Notes</button>
   </div>
 
   <!-- Theme Tab -->
   <div id="theme" class="tab-content">
-    <h2>Final Argumentative Theme & Topic</h2>
+    <h2><i class="fas fa-book" style="margin-right: 8px;"></i>Final Argumentative Theme & Topic</h2>
     <div class="guiding-questions">
       <p><strong>Guiding questions:</strong></p>
       <ul>
@@ -137,12 +233,12 @@
       </ul>
     </div>
     <textarea id="theme-notes" placeholder="Take notes here... (any language accepted)"></textarea>
-    <button class="download-btn" onclick="downloadNotes('theme-notes', 'theme_notes.txt')">Download Notes</button>
+    <button class="download-btn" onclick="downloadNotes('theme-notes', 'theme_notes.txt')"><i class="fas fa-download"></i> Download Notes</button>
   </div>
 
   <!-- Data Tab -->
   <div id="data" class="tab-content">
-    <h2>Identify Key Data</h2>
+    <h2><i class="fas fa-database" style="margin-right: 8px;"></i>Identify Key Data</h2>
     <div class="guiding-questions">
       <p><strong>Guiding questions:</strong></p>
       <ul>
@@ -153,12 +249,12 @@
       </ul>
     </div>
     <textarea id="data-notes" placeholder="Take notes here... (any language accepted)"></textarea>
-    <button class="download-btn" onclick="downloadNotes('data-notes', 'data_notes.txt')">Download Notes</button>
+    <button class="download-btn" onclick="downloadNotes('data-notes', 'data_notes.txt')"><i class="fas fa-download"></i> Download Notes</button>
   </div>
 
   <!-- Roles Tab -->
   <div id="roles" class="tab-content">
-    <h2>Finalise Roles & Format</h2>
+    <h2><i class="fas fa-users" style="margin-right: 8px;"></i>Finalise Roles & Format</h2>
     <div class="guiding-questions">
       <p><strong>Guiding questions:</strong></p>
       <ul>
@@ -169,12 +265,12 @@
       </ul>
     </div>
     <textarea id="roles-notes" placeholder="Take notes here... (any language accepted)"></textarea>
-    <button class="download-btn" onclick="downloadNotes('roles-notes', 'roles_notes.txt')">Download Notes</button>
+    <button class="download-btn" onclick="downloadNotes('roles-notes', 'roles_notes.txt')"><i class="fas fa-download"></i> Download Notes</button>
   </div>
 
   <!-- Contact Tab -->
   <div id="contact" class="tab-content">
-    <h2>Contact Details & Meeting Plan</h2>
+    <h2><i class="fas fa-address-book" style="margin-right: 8px;"></i>Contact Details & Meeting Plan</h2>
     <div class="guiding-questions">
       <p><strong>Guiding questions:</strong></p>
       <ul>
@@ -185,7 +281,7 @@
       </ul>
     </div>
     <textarea id="contact-notes" placeholder="Take notes here... (any language accepted)"></textarea>
-    <button class="download-btn" onclick="downloadNotes('contact-notes', 'contact_notes.txt')">Download Notes</button>
+    <button class="download-btn" onclick="downloadNotes('contact-notes', 'contact_notes.txt')"><i class="fas fa-download"></i> Download Notes</button>
   </div>
 
   <script>
