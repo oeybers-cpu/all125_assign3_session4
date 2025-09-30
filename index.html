@@ -159,6 +159,57 @@
       font-size: 28px;
     }
     
+    .email-section {
+      margin-top: 20px;
+      padding: 15px;
+      background: var(--card-bg);
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+    }
+    
+    .email-section label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: var(--primary);
+    }
+    
+    .email-section input, .email-section textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+    }
+    
+    .email-section .btn-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    .evaluation-criteria {
+      margin-top: 20px;
+      padding: 15px;
+      background: var(--guiding-bg);
+      border-left: 4px solid var(--guiding-border);
+      border-radius: 0 4px 4px 0;
+    }
+    
+    .evaluation-criteria h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+    
+    .evaluation-criteria ul {
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+    
+    .evaluation-criteria li {
+      margin-bottom: 8px;
+    }
+    
     @media (max-width: 768px) {
       .tab-navigation {
         flex-direction: column;
@@ -171,6 +222,10 @@
       
       .tab-content {
         padding: 15px;
+      }
+      
+      .email-section .btn-group {
+        flex-direction: column;
       }
     }
   </style>
@@ -186,6 +241,7 @@
     <button onclick="openTab('data')"><i class="fas fa-database" style="margin-right: 8px;"></i>4. Identify Key Data</button>
     <button onclick="openTab('roles')"><i class="fas fa-users" style="margin-right: 8px;"></i>5. Finalise Roles & Format</button>
     <button onclick="openTab('contact')"><i class="fas fa-address-book" style="margin-right: 8px;"></i>6. Contact Details & Meeting Plan</button>
+    <button onclick="openTab('email')"><i class="fas fa-envelope" style="margin-right: 8px;"></i>7. Email Notes & Reminders</button>
   </div>
 
   <!-- Kahoot Tab -->
@@ -216,6 +272,13 @@
         <li>How will this thesis guide our evidence selection and structure?</li>
       </ul>
     </div>
+    <div class="evaluation-criteria">
+      <h3>Relevant to Evaluation Criteria:</h3>
+      <ul>
+        <li>Clarity and strength of argument (8 marks)</li>
+        <li>Use of evidence from required texts (6 marks)</li>
+      </ul>
+    </div>
     <textarea id="thesis-notes" placeholder="Take notes here... (any language accepted)"></textarea>
     <button class="download-btn" onclick="downloadNotes('thesis-notes', 'thesis_notes.txt')"><i class="fas fa-download"></i> Download Notes</button>
   </div>
@@ -232,6 +295,13 @@
         <li>How does our chosen topic meet the assignment requirements for a debatable issue?</li>
       </ul>
     </div>
+    <div class="evaluation-criteria">
+      <h3>Relevant to Evaluation Criteria:</h3>
+      <ul>
+        <li>Clarity and strength of argument (8 marks)</li>
+        <li>Use of evidence from required texts (6 marks)</li>
+      </ul>
+    </div>
     <textarea id="theme-notes" placeholder="Take notes here... (any language accepted)"></textarea>
     <button class="download-btn" onclick="downloadNotes('theme-notes', 'theme_notes.txt')"><i class="fas fa-download"></i> Download Notes</button>
   </div>
@@ -246,6 +316,15 @@
         <li>What specific data, statistics, or arguments from each article support our thesis?</li>
         <li>How will we cite these sources using Harvard style in our presentation?</li>
         <li>How do these sources help us address potential counterarguments?</li>
+        <li>How will we incorporate one visual aid (graph, chart, or diagram) to support our argument?</li>
+      </ul>
+    </div>
+    <div class="evaluation-criteria">
+      <h3>Relevant to Evaluation Criteria:</h3>
+      <ul>
+        <li>Use of evidence from required texts (6 marks)</li>
+        <li>Visual aid effectiveness (5 marks)</li>
+        <li>Acknowledgement and rebuttal of counterarguments (5 marks)</li>
       </ul>
     </div>
     <textarea id="data-notes" placeholder="Take notes here... (any language accepted)"></textarea>
@@ -262,6 +341,15 @@
         <li>Will our presentation be face-to-face or digital? What factors influenced this decision?</li>
         <li>How will we ensure equal contribution from all team members throughout the process?</li>
         <li>What specific responsibilities does each role have for the presentation structure?</li>
+        <li>How will we manage the 8-10 minute time limit for our presentation?</li>
+      </ul>
+    </div>
+    <div class="evaluation-criteria">
+      <h3>Relevant to Evaluation Criteria:</h3>
+      <ul>
+        <li>Team coordination and contribution (4 marks)</li>
+        <li>Clarity and strength of argument (8 marks)</li>
+        <li>Strong, concise conclusion (2 marks)</li>
       </ul>
     </div>
     <textarea id="roles-notes" placeholder="Take notes here... (any language accepted)"></textarea>
@@ -278,10 +366,61 @@
         <li>When and where will our next team meeting take place? (Include virtual meeting link if applicable)</li>
         <li>What specific tasks must be completed before our next meeting?</li>
         <li>How will we maintain communication between meetings? (e.g., WhatsApp, email, Teams)</li>
+        <li>What is our deadline for completing all presentation elements?</li>
+      </ul>
+    </div>
+    <div class="evaluation-criteria">
+      <h3>Relevant to Evaluation Criteria:</h3>
+      <ul>
+        <li>Team coordination and contribution (4 marks)</li>
+        <li>Strong, concise conclusion (2 marks)</li>
       </ul>
     </div>
     <textarea id="contact-notes" placeholder="Take notes here... (any language accepted)"></textarea>
     <button class="download-btn" onclick="downloadNotes('contact-notes', 'contact_notes.txt')"><i class="fas fa-download"></i> Download Notes</button>
+  </div>
+
+  <!-- Email Tab -->
+  <div id="email" class="tab-content">
+    <h2><i class="fas fa-envelope" style="margin-right: 8px;"></i>Email Notes & Reminders</h2>
+    <div class="guiding-questions">
+      <p><strong>Compose your email to yourself:</strong></p>
+      <ul>
+        <li>Include all critical team information: contact details, roles, meeting plans, and deadlines</li>
+        <li>Use this as a professional record of your progress and next steps</li>
+        <li>Send yourself a copy to ensure you have access to all planning details</li>
+      </ul>
+    </div>
+    
+    <div class="email-section">
+      <label for="email-subject">Subject:</label>
+      <input type="text" id="email-subject" placeholder="ALL 124 Assignment 3 - Team Notes" style="width: 100%; padding: 8px; margin: 10px 0;">
+      
+      <label for="email-body">Email Body:</label>
+      <textarea id="email-body" placeholder="Your email content will appear here..." style="width: 100%; height: 200px; padding: 10px; margin: 10px 0;"></textarea>
+      
+      <div class="btn-group">
+        <button class="download-btn" onclick="prefillEmailBody()"><i class="fas fa-copy"></i> Pre-fill with all notes</button>
+        <button class="download-btn" onclick="sendEmail()"><i class="fas fa-paper-plane"></i> Send Email</button>
+      </div>
+    </div>
+    
+    <div class="evaluation-criteria">
+      <h3>Assignment Requirements Checklist:</h3>
+      <ul>
+        <li>✅ Choose ONE theme from Assignment 2 (Unemployment, Corruption, Entrepreneurship, etc.)</li>
+        <li>✅ Form a team of 3–5 students</li>
+        <li>✅ Use articles from Assignment 2 as primary evidence</li>
+        <li>✅ Cite sources using Harvard style (in-slide or in-narrative)</li>
+        <li>✅ Include at least one visual (graph, chart, or diagram) to support argument</li>
+        <li>✅ Acknowledge and refute one credible counterargument</li>
+        <li>✅ Ensure equal contribution from all team members</li>
+        <li>✅ Max 8-10 minutes presentation</li>
+        <li>✅ Submit slides or digital narrative link via clickUP (Turnitin-enabled)</li>
+        <li>✅ Font: Arial/Times New Roman, size ≤12 | Spacing: 1.5 (for supporting docs)</li>
+        <li>✅ Extra credit: Include x2 examples of meaningful and effective translanguaging</li>
+      </ul>
+    </div>
   </div>
 
   <script>
@@ -313,6 +452,45 @@
       a.click();
       document.body.removeChild(a);
       alert(`Notes saved as ${filename}!`);
+    }
+
+    function prefillEmailBody() {
+      const kahoot = document.getElementById('kahoot-notes').value || 'No notes';
+      const thesis = document.getElementById('thesis-notes').value || 'No notes';
+      const theme = document.getElementById('theme-notes').value || 'No notes';
+      const data = document.getElementById('data-notes').value || 'No notes';
+      const roles = document.getElementById('roles-notes').value || 'No notes';
+      const contact = document.getElementById('contact-notes').value || 'No notes';
+      
+      const formattedNotes = `
+Kahoot Participation Notes:
+${kahoot}
+
+Thesis Statements:
+${thesis}
+
+Final Argumentative Theme & Topic:
+${theme}
+
+Key Data:
+${data}
+
+Finalised Roles & Format:
+${roles}
+
+Contact Details & Meeting Plan:
+${contact}
+      `;
+      
+      document.getElementById('email-body').value = formattedNotes;
+      document.getElementById('email-subject').value = 'ALL 124 Assignment 3 - Team Notes';
+    }
+
+    function sendEmail() {
+      const subject = document.getElementById('email-subject').value || 'ALL 124 Assignment 3 Notes';
+      const body = document.getElementById('email-body').value;
+      const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
     }
   </script>
 </body>
