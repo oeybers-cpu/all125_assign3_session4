@@ -41,6 +41,9 @@
       color: var(--text);
       background-color: var(--light);
       padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     
     .tab-navigation { 
@@ -83,6 +86,7 @@
       border-radius: 4px;
       background: var(--card-bg);
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      flex-grow: 1;
     }
     
     .tab-content h2 { 
@@ -210,6 +214,64 @@
       margin-bottom: 8px;
     }
     
+    footer {
+      background: linear-gradient(135deg, #003366, #001a33);
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      margin-top: auto;
+      border-top: 2px solid #FF6600;
+      font-size: 0.9rem;
+    }
+    
+    .digital-counter-container {
+      display: inline-block;
+      background: #000;
+      color: #0f0;
+      padding: 15px 25px;
+      border-radius: 8px;
+      border: 2px solid #0f0;
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.7), 
+                  0 0 30px rgba(0, 255, 0, 0.5),
+                  inset 0 0 10px rgba(0, 255, 0, 0.3);
+      font-family: 'Courier New', monospace;
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+      margin: 10px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .digital-counter-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.2), transparent);
+      animation: scan 3s infinite linear;
+    }
+    
+    .digital-counter-container a {
+      color: #0f0;
+      text-decoration: none;
+      font-size: 0.8rem;
+      display: block;
+      margin-top: 8px;
+      transition: all 0.3s;
+    }
+    
+    .digital-counter-container a:hover {
+      color: #ff0;
+      text-decoration: underline;
+    }
+    
+    @keyframes scan {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    
     @media (max-width: 768px) {
       .tab-navigation {
         flex-direction: column;
@@ -227,6 +289,15 @@
       .email-section .btn-group {
         flex-direction: column;
       }
+      
+      footer {
+        font-size: 0.8rem;
+      }
+      
+      .digital-counter-container {
+        padding: 10px 15px;
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
@@ -235,33 +306,16 @@
   <p class="team-note"><i class="fas fa-info-circle" style="margin-right: 8px;"></i>Complete these sections in sequence to ensure your team is fully prepared for the presentation. All notes will be saved locally in your browser.</p>
   
   <div class="tab-navigation">
-    <button class="active" onclick="openTab('kahoot')"><i class="fas fa-gamepad" style="margin-right: 8px;"></i>1. Kahoot Participation</button>
-    <button onclick="openTab('thesis')"><i class="fas fa-graduation-cap" style="margin-right: 8px;"></i>2. Define Thesis Statements</button>
-    <button onclick="openTab('theme')"><i class="fas fa-book" style="margin-right: 8px;"></i>3. Final Argumentative Theme & Topic</button>
-    <button onclick="openTab('data')"><i class="fas fa-database" style="margin-right: 8px;"></i>4. Identify Key Data</button>
-    <button onclick="openTab('roles')"><i class="fas fa-users" style="margin-right: 8px;"></i>5. Finalise Roles & Format</button>
-    <button onclick="openTab('contact')"><i class="fas fa-address-book" style="margin-right: 8px;"></i>6. Contact Details & Meeting Plan</button>
-    <button onclick="openTab('email')"><i class="fas fa-envelope" style="margin-right: 8px;"></i>7. Email Notes & Reminders</button>
-  </div>
-
-  <!-- Kahoot Tab -->
-  <div id="kahoot" class="tab-content" style="display: block;">
-    <h2><i class="fas fa-gamepad" style="margin-right: 8px;"></i>Kahoot Participation</h2>
-    <div class="guiding-questions">
-      <p><strong>Guiding questions:</strong></p>
-      <ul>
-        <li>What is the purpose of the Kahoot quiz in relation to our chosen theme?</li>
-        <li>What key insights did we gain from the Kahoot that might shape our argument?</li>
-        <li>How will the Kahoot results inform our research direction and evidence selection?</li>
-        <li>What misconceptions did we identify that we need to address in our presentation?</li>
-      </ul>
-    </div>
-    <textarea id="kahoot-notes" placeholder="Take notes here... (any language accepted)"></textarea>
-    <button class="download-btn" onclick="downloadNotes('kahoot-notes', 'kahoot_notes.txt')"><i class="fas fa-download"></i> Download Notes</button>
+    <button class="active" onclick="openTab('thesis')"><i class="fas fa-graduation-cap" style="margin-right: 8px;"></i>1. Define Thesis Statements</button>
+    <button onclick="openTab('theme')"><i class="fas fa-book" style="margin-right: 8px;"></i>2. Final Argumentative Theme & Topic</button>
+    <button onclick="openTab('data')"><i class="fas fa-database" style="margin-right: 8px;"></i>3. Identify Key Data</button>
+    <button onclick="openTab('roles')"><i class="fas fa-users" style="margin-right: 8px;"></i>4. Finalise Roles & Format</button>
+    <button onclick="openTab('contact')"><i class="fas fa-address-book" style="margin-right: 8px;"></i>5. Contact Details & Meeting Plan</button>
+    <button onclick="openTab('email')"><i class="fas fa-envelope" style="margin-right: 8px;"></i>6. Email Notes & Reminders</button>
   </div>
 
   <!-- Thesis Tab -->
-  <div id="thesis" class="tab-content">
+  <div id="thesis" class="tab-content" style="display: block;">
     <h2><i class="fas fa-graduation-cap" style="margin-right: 8px;"></i>Define Thesis Statements</h2>
     <div class="guiding-questions">
       <p><strong>Guiding questions:</strong></p>
@@ -423,6 +477,15 @@
     </div>
   </div>
 
+  <footer>
+    <div class="digital-counter-container">
+      <a href='https://www.free-counters.org/'>... by Free-Counters.org</a>
+      <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=b146e95860d46dc0746ff71ca8f9353313352ea5'></script>
+      <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1399576/t/5"></script>
+    </div>
+    <p>ALL 124 Assignment 3 Planning System &copy; 2023 | All notes saved locally in your browser</p>
+  </footer>
+
   <script>
     function openTab(tabName) {
       // Update active tab button
@@ -455,7 +518,6 @@
     }
 
     function prefillEmailBody() {
-      const kahoot = document.getElementById('kahoot-notes').value || 'No notes';
       const thesis = document.getElementById('thesis-notes').value || 'No notes';
       const theme = document.getElementById('theme-notes').value || 'No notes';
       const data = document.getElementById('data-notes').value || 'No notes';
@@ -463,9 +525,6 @@
       const contact = document.getElementById('contact-notes').value || 'No notes';
       
       const formattedNotes = `
-Kahoot Participation Notes:
-${kahoot}
-
 Thesis Statements:
 ${thesis}
 
