@@ -89,6 +89,63 @@
       flex-grow: 1;
     }
     
+    /* Specific styling for ClickUP tab */
+    #clickup {
+      background-color: #d2b48c; /* light brown */
+      color: #000000; /* black text */
+    }
+    
+    #clickup h2 {
+      color: #000000;
+      border-bottom: 2px solid #8b4513;
+    }
+    
+    #clickup .guiding-questions {
+      background: #e8f4fc;
+      color: #000000;
+    }
+    
+    #clickup .guiding-questions ul {
+      color: #000000;
+    }
+    
+    #clickup .guiding-questions li {
+      color: #000000;
+    }
+    
+    #clickup textarea {
+      background: #f5deb3;
+      color: #000000;
+      border: 1px solid #8b4513;
+    }
+    
+    #clickup .download-btn {
+      background: #8b4513;
+      color: #ffffff;
+    }
+    
+    #clickup .download-btn:hover {
+      background: #a0522d;
+    }
+    
+    #clickup .evaluation-criteria {
+      background: #f5deb3;
+      color: #000000;
+      border-left: 4px solid #8b4513;
+    }
+    
+    #clickup .evaluation-criteria h3 {
+      color: #000000;
+    }
+    
+    #clickup .evaluation-criteria ul {
+      color: #000000;
+    }
+    
+    #clickup .evaluation-criteria li {
+      color: #000000;
+    }
+    
     .tab-content h2 { 
       color: var(--primary);
       margin-top: 0; 
@@ -312,6 +369,7 @@
     <button onclick="openTab('roles')"><i class="fas fa-users" style="margin-right: 8px;"></i>4. Finalise Roles & Format</button>
     <button onclick="openTab('contact')"><i class="fas fa-address-book" style="margin-right: 8px;"></i>5. Contact Details & Meeting Plan</button>
     <button onclick="openTab('email')"><i class="fas fa-envelope" style="margin-right: 8px;"></i>6. Email Notes & Reminders</button>
+    <button onclick="openTab('clickup')"><i class="fas fa-clipboard-list" style="margin-right: 8px;"></i>7. ClickUP Instructions</button>
   </div>
 
   <!-- Thesis Tab -->
@@ -473,6 +531,54 @@
         <li>✅ Submit slides or digital narrative link via clickUP (Turnitin-enabled)</li>
         <li>✅ Font: Arial/Times New Roman, size ≤12 | Spacing: 1.5 (for supporting docs)</li>
         <li>✅ Extra credit: Include x2 examples of meaningful and effective translanguaging</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ClickUP Tab -->
+  <div id="clickup" class="tab-content">
+    <h2><i class="fas fa-clipboard-list" style="margin-right: 8px;"></i>ClickUP Instructions</h2>
+    <div class="guiding-questions">
+      <p><strong>How to submit your Assignment 3 on ClickUP:</strong></p>
+      <ul>
+        <li>1. Log in to ClickUP using your University of Pretoria credentials</li>
+        <li>2. Navigate to the <strong>ALL 124</strong> course</li>
+        <li>3. Go to <strong>Assessments</strong> > <strong>Assignment 3: Team Argumentation Presentation</strong></li>
+        <li>4. Click the <strong>"Submit Assignment"</strong> button</li>
+        <li>5. Choose one of these submission options:
+          <ul>
+            <li>Upload your presentation slides (PowerPoint, Google Slides, or PDF)</li>
+            <li>Submit a digital narrative link (e.g., YouTube video link, Google Slides share link)</li>
+          </ul>
+        </li>
+        <li>6. Confirm your submission before the deadline of <strong>31 October</strong></li>
+        <li>7. Check your submission confirmation email to ensure it was successful</li>
+      </ul>
+      
+      <p><strong>Important notes:</strong></p>
+      <ul>
+        <li>ClickUP uses Turnitin for plagiarism checking - ensure your work is properly cited</li>
+        <li>For group submissions, one team member should submit on behalf of the entire team</li>
+        <li>Double-check that all team members' names are included in the submission</li>
+        <li>Submit at least 1 hour before the deadline to avoid technical issues</li>
+      </ul>
+      
+      <p><strong>Direct access link:</strong><br>
+      <a href="https://clickup.up.ac.za/ultra/courses/_181368_1/outline/assessment/test/_4591301_1?courseId=_181368_1&gradeitemView=details" target="_blank" style="color: #000000; font-weight: bold; text-decoration: underline;">
+        Click here to access ClickUP Assignment 3 Submission Page
+      </a></p>
+    </div>
+    
+    <div class="evaluation-criteria">
+      <h3>ClickUP Submission Requirements:</h3>
+      <ul>
+        <li>✅ Presentation must be 8-10 minutes in length</li>
+        <li>✅ All team members must contribute equally</li>
+        <li>✅ Sources must be cited using Harvard style</li>
+        <li>✅ Visual aid must be included to support argument</li>
+        <li>✅ Counterargument must be acknowledged and refuted</li>
+        <li>✅ Submission must be made via the official ClickUP portal</li>
+        <li>✅ File formats: PPTX, PDF, or shareable link for digital narratives</li>
       </ul>
     </div>
   </div>
